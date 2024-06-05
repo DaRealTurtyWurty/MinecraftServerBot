@@ -1,0 +1,29 @@
+plugins {
+    id 'application'
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+}
+
+application {
+    mainClass = 'dev.turtywurty.minecraftserverbot.MinecraftServerBot'
+}
+
+group = 'dev.turtywurty'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("net.dv8tion:JDA:5.0.0-beta.24")
+    implementation("ch.qos.logback:logback-classic:1.5.6")
+    implementation("io.github.cdimascio:dotenv-java:3.0.0")
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.incremental = true
+
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
