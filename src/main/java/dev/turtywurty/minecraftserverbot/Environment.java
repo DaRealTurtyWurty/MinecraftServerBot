@@ -28,11 +28,27 @@ public class Environment {
         return get("BOT_TOKEN");
     }
 
+    public Optional<String> getJarPath() {
+        return get("JAR_PATH");
+    }
+
+    public Optional<String> getBatchPath() {
+        return get("BATCH_PATH");
+    }
+
     public Optional<String> getServerStartCommand() {
         return get("SERVER_START_COMMAND");
     }
 
     public Optional<String> getServerStopCommand() {
         return get("SERVER_STOP_COMMAND");
+    }
+
+    public Optional<Long> getLong(String key) {
+        return get(key).map(Long::parseLong);
+    }
+
+    public Optional<Long> getOwnerID() {
+        return getLong("OWNER_ID");
     }
 }
